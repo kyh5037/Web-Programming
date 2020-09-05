@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>웹 페이지의 구성요소</title>
+		<style>
+			body {background-color : linen; color : green;
+				  margin-left : 40px; margin-right: 40px;}
+			h3 {text-align : center; color : darkred;}
+			hr {height : 5px; border : solid grey; 
+				background-color : grey}
+			span {color : blue; font-size : 20px;}		  
+		</style>
+		<script>
+			function show() { // <img>에 이미지 달기
+				document.getElementById("fig").src="Kimyounhwan.jpg";
+			}
+			function hide() { // <img>에 이미지 제거
+				document.getElementById("fig").src="";
+			}
+		</script>
+	</head>
+	<body>
+		<h3 onmouseover="show()" onmouseout="hide()">김윤환</h3>
+		<hr>
+		<div><img id="fig" src="" width="150", height="250"></div>
+		안녕하십니까. 저는 단국대 소프트웨어학과 <span>32177177 김윤환</span> 입니다.<br>
+		저는 4학년 2학기이고 <span>백 앤드</span>쪽으로 취업을 하고 싶어 웹 프로그래밍을 듣게 되었습니다.<br>
+		마지막인 만큼 열심히 하겠습니다.<br>
+		감사합니다.<br>
+	</body>
+</html>
