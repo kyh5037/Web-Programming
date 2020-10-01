@@ -1,0 +1,46 @@
+@font-face {
+	font-family: 'nanum';
+	src: url('나눔손글씨 딸에게 엄마가.ttf');
+}
+header {
+	width: 100%;
+	height: 20%;
+	margin: 0px;
+	padding: 0px;
+	background-color: yellow;
+}
+html, body {
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+h1 {
+	color: brown;
+	text-align: center;
+}
+section {
+	background: #F6CED8;
+	padding: 10px;
+	margin: 10px;
+}
+p {
+	font-family: "nanum";
+	font-size: 1em;
+	text-indent: 1em;
+}
+label {
+	font-family: "nanum";
+	color: black;
+	font-weight: normal;
+}
+article {
+	color: blue;
+	font-weight: bold;
+}
+footer {
+	position: relative;
+	width: 100%;
+	height: 20%;
+	float: left;
+	background-color: #CE93D8;
+}
