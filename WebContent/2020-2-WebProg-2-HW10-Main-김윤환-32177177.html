@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>마우스 클릭 연습</title>
+		<style>
+			table {
+				border: 1px solid black;
+			}
+			td {
+				border: 1px solid black;
+				width: 50px;
+				height: 50px;
+				text-align: center;
+			}
+			img {
+				width: 40px;
+				height: 40px;
+			}
+		</style>
+		<script type="text/javascript">
+			var img = new Image();
+			img.src = "https://w.namu.la/s/ca8043e94caeaf90e9f1311616b03654a416687f0bea0fe5bc12708d10d70c45a47cbb62f0864ca8e7a1ed8dec95207bf6b212d84b9dc86e3021a9cf23a3cac7d5e0e03afcc6ac480c194a8716fd6c8330ffdf3166f4357c84e03cba526d7583";
+			var clickNum = 0;
+			
+			function start(){
+				for(var i = 0; i < 100; i++){
+					document.images[i].style.visibility = "hidden";
+				}
+				
+				var num = Math.floor(Math.random()*100);
+				clickNum = num;
+				document.images[num].src = img.src;
+				document.images[num].style.visibility = "visible";
+			}
+			
+			function changeMove(e){
+				document.images[clickNum].src = "";
+				document.images[clickNum].style.visibility = "hidden";
+				start();
+			}
+		</script>
+	</head>
+	<body onload="start()">
+		<h3>마우스 클릭 연습</h3>
+		<hr>
+		<script>
+			document.write("<table>");
+		    for( var i = 0; i < 10; i++ ){
+		        document.write("<tr>");
+		        for( var j = 0; j < 10; j++ ){
+		            document.write("<td>");
+					document.write("<img src='' onclick='changeMove(event)'>");
+		            document.write("</td>");
+		        }
+		        document.write("</tr>");
+		    }
+			document.write("</table>");
+		</script>
+	</body>
+</html>
