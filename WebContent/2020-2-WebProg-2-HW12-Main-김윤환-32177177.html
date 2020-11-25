@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>캔버스에 차트 그리기</title>
+		<script>
+			function chart(){
+				var canvas = document.getElementById("myCanvas");
+				var context = canvas.getContext ("2d");
+				var colors = ["blue", "green", "yellow", "magenta", "red"];
+				var grades = ["A", "B", "C", "D", "F"];
+				var student = new Array();
+				var percent = new Array();
+				var sum = 0;
+				
+				for(var i = 0; i < grades.length; i++){
+					student[i] = parseInt(document.getElementById(grades[i]).value);
+					sum += student[i]; 
+				}
+				
+				for(var i = 0; i < grades.length; i++){
+					
+					percent[i] = parseInt(student[i] / sum * 100);
+					context.fillText(grades[i] + " 학점" + percent[i] + "% : " + colors[i], 10, 30+i*15);
+					
+				}
+				
+				var start = 0;
+				var end = 0;
+				for (var i = 0; i < grades.length; i++){
+					
+					context.fillStyle = colors[i];
+					
+					start = end;
+					end += student[i] / sum * Math.PI * 2;
+					
+					context.beginPath();
+					context.moveTo(250, 250);
+					context.arc(250, 250, 200, start, end);
+					context.closePath();
+					context.fill();
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h3>학점 별로 학생 수를 입력하면 파이 차트로 비율 그리기</h3>
+		<hr>
+		<form>
+			<label> A <input id="A" type="number" value="0"> 명 </label>
+			<label> B <input id="B" type="number" value="0"> 명 </label>
+			<label> C <input id="C" type="number" value="0"> 명 </label><br>
+			<label> D <input id="D" type="number" value="0"> 명 </label>
+			<label> F <input id="F" type="number" value="0"> 명 </label>
+			<button type="button" onclick="chart()">차트 그리기</button>
+		</form>
+		<br>
+		<canvas id="myCanvas" style="background-color:aliceblue" width="500" height="500"></canvas>
+	</body>
+</html>

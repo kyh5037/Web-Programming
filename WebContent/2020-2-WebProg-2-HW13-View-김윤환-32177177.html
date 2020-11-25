@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>전체 보기</title>
+		<style>
+			table {
+				background-color: aliceblue;
+			}
+			td {
+				text-align: center;
+				padding-right: 10px;
+				padding-left: 10px;
+			}
+			span {
+				border : 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<h3>나의 단어장 모두 출력</h3>
+		<hr>
+		<script>
+			if(window.localStorage){
+				document.write("<table>");
+				for(var i = 0; i < localStorage.length; i++){
+					var eng = localStorage.key(i);
+					
+					document.write("<tr>");
+					document.write("<td><span>" + (i+1) + "</span></td>");
+					document.write("<td><strong>" + eng + "</strong></td>");
+					document.write("<td>" + localStorage.getItem(eng) + "</td>");
+					document.write("</tr>");
+					
+				}
+				document.write("</table>");
+			}
+		</script>
+	</body>
+</html>

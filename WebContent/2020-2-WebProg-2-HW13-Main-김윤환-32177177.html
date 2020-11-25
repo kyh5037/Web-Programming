@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>단어장 만들기</title>
+		<script>
+			function store(){
+				var eng = document.getElementById("eng").value.trim();
+				var kor = document.getElementById("kor").value.trim();
+				
+				if(localStorage.getItem(eng) != null){
+					var modify = confirm(eng + "가 이미 있습니다. 수정하시겠습니까?");
+					if(modify == false)
+						return;
+				}
+				
+				localStorage.setItem(eng, kor);
+				document.getElementById("eng").value = "";
+				document.getElementById("kor").value = "";
+			}
+			
+			function search(){
+				var eng = document.getElementById("eng").value.trim();
+				var kor = document.getElementById("kor").value.trim();
+				
+				if(localStorage.getItem(eng) == null){
+					alert(eng + "는 없는 단어입니다.");
+					document.getElementById("eng").value = "";
+					document.getElementById("kor").value = "";
+					return;
+				}
+				
+				document.getElementById("kor").value = localStorage.getItem(eng);
+			}
+			
+			function deleteWord(){
+				var eng = document.getElementById("eng").value.trim();
+				var kor = document.getElementById("kor").value.trim();
+				
+				if(localStorage.getItem(eng) == null){
+					alert(eng + "는 없는 단어입니다.");
+					return;
+				}
+				
+				localStorage.removeItem(eng);
+				
+				document.getElementById("eng").value = "";
+				document.getElementById("kor").value = "";
+			}
+			
+			function view(){
+				window.open("2020-2-WebProg-2-HW13-View-김윤환-32177177.html", "view", "left=300,top=300,width=400,height=300");
+			}
+		</script>
+	</head>
+	<body>
+		<h3>나의 단어장 만들기</h3>
+		<hr>
+		<form>
+			<label> 영어 <input id="eng" type="text" value=""></label><br>
+			<label> 한글 <input id="kor" type="text" value=""></label><br>
+			<br>
+			<button type="button" onclick="store()">단어 저장</button>
+			<button type="button" onclick="search()">영단어 검색</button>
+			<button type="button" onclick="deleteWord()">단어 삭제</button>
+			<button type="button" onclick="view()">전체 보기</button>
+		</form>
+	</body>
+</html>

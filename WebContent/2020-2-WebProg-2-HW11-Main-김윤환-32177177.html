@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style>
+	body {
+		background-image : url("https://dispatch.cdnser.be/cms-content/uploads/2019/10/25/946d244e-cbc6-45e4-8567-c401d2ccce46.png");
+		background-size : 100%;
+		background-repeat : no-repeat;
+	}
+	div {
+		position : absolute;
+		color: white;
+		font-size: 30px;
+	}
+	</style>
+	<script>
+		var w = new Array(30);	
+		var h = new Array(30);
+		var snow = new Array(30);
+	
+		function doRotate(){
+			for(var i = 0; i < 30; i++){
+				h[i] += Math.random();
+				if(h[i] >= window.innerHeight-50){
+					w[i] = Math.floor(Math.random()*window.innerWidth);
+					h[i] = 0;
+				}
+
+				snow[i].style.left = w[i] + "px";
+				snow[i].style.top = h[i] + "px";
+			}
+			setTimeout("doRotate()", 30);
+		}
+		
+	</script>
+</head>
+<body onload="doRotate()">
+	<script>
+		for(var i = 0; i < 30; i++){
+			w[i] = Math.floor(Math.random()*window.innerWidth);
+			h[i] = Math.floor(Math.random()*window.innerHeight);
+
+			document.write("<div id=snow" + i + " style='top:" + w[i] + "px;left:" + h[i] + "px'>*</div>");
+			
+			snow[i] = document.getElementById("snow" + i);
+		}
+	</script>
+</body>
+</html>
